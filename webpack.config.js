@@ -1,7 +1,7 @@
 // jshint esversion: 6
 
-// process.env.NODE_ENV = process.env.NODE_ENV ? process.env.NODE_ENV : 'development';
-process.env.NODE_ENV = 'development';
+process.env.NODE_ENV = process.env.NODE_ENV ? process.env.NODE_ENV : 'development';
+// process.env.NODE_ENV = 'development';
 const webpack = require('webpack');
 
 module.exports = {
@@ -27,7 +27,7 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         // need .babelrc with 'es2015' preset written down in it
-        loader: 'babel-loader',
+        loader: 'babel',
         query: {
           // optional: ['runtime'],
           plugins: ['transform-runtime'],
