@@ -45,14 +45,19 @@ module.exports = {
         loader: 'babel',
           // optional: ['runtime'],
         plugins: ['transform-runtime'],
-      }
-    ],
-    rules: [
+      },
       // making .css files available for importing in .js
       {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader']
-      }
-    ]
+        test:/\.css$/,loader:'style!css!'
+      },
+      { test: /\.(png|woff|woff2|eot|ttf|svg)$/, loader: 'url-loader?limit=100000' }
+    ],
+    // rules: [
+    //   // making .css files available for importing in .js
+    //   {
+    //     test: /\.css$/,
+    //     use: ['style-loader', 'css-loader']
+    //   }
+    // ]
   },
 };

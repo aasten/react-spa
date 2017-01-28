@@ -1,5 +1,7 @@
 // jshint esversion: 6
 import React, { Component } from 'react';
+import basecss from './base.css';
+import css from './style.css';
 
 export default class App extends Component {
   render() {
