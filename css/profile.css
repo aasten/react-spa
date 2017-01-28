@@ -1,0 +1,21 @@
+.user-image {
+  display: block;
+  margin-bottom: -3em;
+}
+
+.user-image img {
+  max-width: 100%;
+}
+
+.hint {
+  padding: .5em;
+  opacity: 0.5;
+  background-color: white;
+  text-align: center;
+  height: 3em;
+  visibility: hidden;
+}
+
+.user-image:hover ~ .hint {
+  visibility: visible;
+}

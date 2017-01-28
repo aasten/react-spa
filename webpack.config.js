@@ -5,9 +5,12 @@ process.env.NODE_ENV = process.env.NODE_ENV ? process.env.NODE_ENV : 'developmen
 const webpack = require('webpack');
 
 module.exports = {
-  entry: './home',
+  entry: [
+    // 'webpack-hot-middleware/client',
+    './src/index.js'
+  ],
   output: {
-    filename: 'build.js'
+    filename: 'bundle.js'
   },
   watch: process.env.NODE_ENV == 'development',
 
@@ -18,8 +21,20 @@ module.exports = {
   // devtool: process.env.NODE_ENV == 'development' ? 'eval' : null,
 
   plugins: [
+    // making NODE_ENV available in any source in this project
     new webpack.EnvironmentPlugin('NODE_ENV'),
   ],
+
+  // resolve: {
+  //   modulesDirectories: ['node_modules'],
+  //   extensions: ['', '.js']
+  // },
+  //
+  // resolveLoader: {
+  //   modulesDirectories: ['node_modules'],
+  //   moduleTemplates: ['*-loader', '*'],
+  //   extensions: ['','*.js']
+  // },
 
   module: {
     loaders: [
@@ -28,10 +43,15 @@ module.exports = {
         exclude: /node_modules/,
         // need .babelrc with 'es2015' preset written down in it
         loader: 'babel',
-        query: {
           // optional: ['runtime'],
-          plugins: ['transform-runtime'],
-        }
+        plugins: ['transform-runtime'],
+      }
+    ],
+    rules: [
+      // making .css files available for importing in .js
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
       }
     ]
   },
