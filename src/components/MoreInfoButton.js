@@ -3,6 +3,7 @@ import React from 'react';
 import entrycss from './entry.css';
 import css from '../style.css';
 import {ModalDialog} from 'react-modal-dialog';
+import MoreInfo from './MoreInfo.js'
 
 export default class MoreInfoButton extends React.Component {
   state = {
@@ -12,11 +13,11 @@ export default class MoreInfoButton extends React.Component {
   handleClose = () => this.setState({isShowingModal: false})
   render() {
     return <button className="more-info action-button" onClick={this.handleClick}>
-      <span>More info</span>
+      More info
       {
         this.state.isShowingModal &&
         <ModalDialog onClose={this.handleClose}>
-          <h1> Hello </h1>
+          <MoreInfo />
         </ModalDialog>
       }
     </button>;

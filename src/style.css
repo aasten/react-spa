@@ -482,6 +482,10 @@ body {
   text-transform: uppercase;
 }
 
+.action-button > * {
+  text-transform: none;
+}
+
 .action-button:hover {
   cursor: pointer;
 }
