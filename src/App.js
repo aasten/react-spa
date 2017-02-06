@@ -1,5 +1,6 @@
 // jshint esversion: 6
 import React, { Component } from 'react';
+import MoreInfoButton from './components/MoreInfoButton.js';
 import basecss from './base.css';
 import css from './style.css';
 
@@ -190,9 +191,7 @@ export default class App extends Component {
                 <button className="add-to-cart action-button">
                   Add to cart
                 </button>
-                <button className="more-info action-button">
-                  More info
-                </button>
+                <MoreInfoButton />
               </div>
             </div>
 

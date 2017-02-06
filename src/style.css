@@ -463,16 +463,16 @@ body {
   background: -ms-linear-gradient(top, #FAFAFA, #EDEDED); /* для IE10+ */
 }
 
-.more-info {
+/*.more-info {
   width: 120px;
   border-radius: 0 3px 3px 0;
   background-color: #DEDEDE;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#EDEDED', endColorstr='#E5E5E5'); /* для IE6-9 */
-  background: -webkit-linear-gradient(top, bottom, #EDEDED, #E5E5E5); /* для webkit-браузеров */
-  background: -moz-linear-gradient(top, #EDEDED, #E5E5E5); /* для firefox 3.6+ */
-  background: -o-linear-gradient(top, #EDEDED, #E5E5E5); /* для Opera 11.10+ */
-  background: -ms-linear-gradient(top, #EDEDED, #E5E5E5); /* для IE10+ */
-}
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#EDEDED', endColorstr='#E5E5E5');
+  background: -webkit-linear-gradient(top, bottom, #EDEDED, #E5E5E5);
+  background: -moz-linear-gradient(top, #EDEDED, #E5E5E5);
+  background: -o-linear-gradient(top, #EDEDED, #E5E5E5);
+  background: -ms-linear-gradient(top, #EDEDED, #E5E5E5);
+}*/
 
 .action-button {
   color: #878787;
@@ -730,9 +730,9 @@ body {
   width: 105px;
 }
 
-.more-info {
+/*.more-info {
   width: 95px;
-}
+}*/
 
 .action-button {
   font-size: 12px;
