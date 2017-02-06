@@ -2,9 +2,16 @@
 import React from 'react';
 import entrycss from './entry.css';
 import css from '../style.css';
-// import {Modal} from 'react-modal';
-import {ModalDialog} from 'react-modal-dialog';
+// import Modal from 'react-modal';
+import Modal from 'react-awesome-modal';
+// import {ModalDialog} from 'react-modal-dialog';
 import MoreInfo from './MoreInfo.js'
+
+// const modalStyle = {
+//   content: {
+//     width: '100%',
+//   }
+// }
 
 export default class MoreInfoButton extends React.Component {
   state = {
@@ -15,20 +22,13 @@ export default class MoreInfoButton extends React.Component {
   render() {
     return <button className="more-info action-button" onClick={this.openModal}>
       More info
-      { /*<Modal
-        isOpen={this.state.isShowingModal}
-        onRequestClose={this.closeModal}
-        contentLabel="Product details"
-        shouldCloseOnOverlayClick={true} />*/ }
-      {
-        this.state.isShowingModal &&
-      <ModalDialog onClose={this.closeModal} >
+      <Modal
+        visible={this.state.isShowingModal}
+        onClickAway={() => this.closeModal()} >
+
         <MoreInfo />
-      </ModalDialog>
-      }
-      {
-        /* </Modal> */
-      }
+
+      </Modal>
     </button>;
   }
 }

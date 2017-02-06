@@ -59,6 +59,7 @@ export default class MoreInfo extends React.Component {
           </table>
         </div>
       </div>
+
     </div>;
   }
 }
