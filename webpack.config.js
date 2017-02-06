@@ -19,7 +19,7 @@ module.exports = {
   },
 
   // devtool: process.env.NODE_ENV == 'development' ? 'eval' : null,
-
+  devtool: process.env.NODE_ENV == 'development' ? 'cheap-module-source-map' : null,
   plugins: [
     // making NODE_ENV available in any source in this project
     new webpack.EnvironmentPlugin('NODE_ENV'),
@@ -50,7 +50,8 @@ module.exports = {
       {
         test:/\.css$/,loader:'style!css!'
       },
-      { test: /\.(png|woff|woff2|eot|ttf|svg)$/, loader: 'url-loader?limit=100000' }
+      { test: /\.(png|woff|woff2|eot|ttf|svg)$/, loader: 'url-loader?limit=100000' },
+      { test: /\.(png|woff|woff2|eot|ttf|svg)/, loader: 'url-loader?limit=30000&name=[name]-[hash].[ext]' }
     ],
     // rules: [
     //   // making .css files available for importing in .js

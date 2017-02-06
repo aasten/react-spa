@@ -1,6 +1,9 @@
 // jshint esversion: 6
 import React from 'react';
-import css from '../style.css';
+import basecss from '../base.css';
+import productdetailscss from './product-details.css';
+import facss from '../../font-awesome/css/font-awesome.min.css'
+
 
 export default class MoreInfo extends React.Component {
   render() {
