@@ -1,6 +1,5 @@
 .product-details {
-  box-shadow: 5px 5px 5px grey;
-  width: 768px;
+  display: inline-block;
   padding: 1em;
   color: #878787;
   overflow: auto;
@@ -8,7 +7,7 @@
 
 .product-image {
   display: inline-block;
-  width: 480px;
+  width: 74%;
   float: left;
   border: 1px solid #DDD;
   margin: 0 2em 2em 0;
@@ -30,6 +29,7 @@
 
 .price {
   font-size: 2em;
+  overflow: hidden;
 }
 
 .cost {
@@ -42,6 +42,7 @@
 
 .buy-statistics {
   font-size: 1.5em;
+  overflow: hidden;
 }
 
 .count-buyings {

@@ -28,9 +28,9 @@ export default class MoreInfo extends React.Component {
         Price: <span className="cost">2000</span>
       </p>
 
-      <div className="buy-statistics">
+      <p className="buy-statistics">
         Total buyings: <span className="count-buyings">0</span>
-      </div>
+      </p>
 
       <div className="product-characteristics">
         <h2>Characteristics</h2>

@@ -3,36 +3,43 @@ import React from 'react';
 import entrycss from './entry.css';
 import css from '../style.css';
 import Modal from 'react-modal';
-// import {ModalDialog} from 'react-modal-dialog';
 import MoreInfo from './MoreInfo.js'
 
 
 
 export default class MoreInfoButton extends React.Component {
+
   state = {
     isShowingModal: false,
   }
 
-
   openModal = () => this.setState({isShowingModal: true})
   closeModal = () => this.setState({isShowingModal: false})
   render() {
-    const padding = 10; // adjust this to your needs
-    let height = (this.state.contentHeight + padding);
-    let heightPx = height + 'px';
-    let heightOffset = height / 2;
-    let offsetPx = heightOffset + 'px';
 
     const modalStyle = {
-      content: {
-        border: '0',
-        borderRadius: '4px',
-        height: heightPx,  // set height
-        padding: '2rem',
+      overlay : {
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        backgroundColor: 'rgba(0, 0, 0, 0.3)'
+      },
+      content : {
+        position: 'absolute',
         left: '50%',
-        transform: 'translate(-50%,-' + offsetPx + ')', // adjust top "up" based on height
-        width: '70%',
-        maxWidth: '768px'
+        top: '50%',
+        transform: 'translate(-50%,-50%)',
+        width: '74%',
+        height: '80%',
+        border: '1px solid #ccc',
+        background: '#fff',
+        overflow: 'auto',
+        WebkitOverflowScrolling: 'touch',
+        borderRadius: '4px',
+        outline: 'none',
+        textAlign: 'center',
       }
     };
 
@@ -43,6 +50,7 @@ export default class MoreInfoButton extends React.Component {
         onRequestClose={this.closeModal}
         contentLabel="Product details"
         shouldCloseOnOverlayClick={true}
+        style={modalStyle}
          >
 
         <MoreInfo />
