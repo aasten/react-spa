@@ -6,6 +6,11 @@ import facss from '../../font-awesome/css/font-awesome.min.css'
 
 
 export default class MoreInfo extends React.Component {
+
+  static propTypes = {
+    characteristics: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
+  }
+
   render() {
     return <div className="product-details">
       <div className="product-image">
@@ -32,6 +37,8 @@ export default class MoreInfo extends React.Component {
         Total buyings: <span className="count-buyings">0</span>
       </p>
 
+      {
+      this.props.characteristics &&
       <div className="product-characteristics">
         <h2>Characteristics</h2>
         <div>
@@ -40,26 +47,47 @@ export default class MoreInfo extends React.Component {
               <th>Category</th>
               <th>Specification</th>
             </tr>
-            <tr>
-              <td>Image sensor type </td>
-              <td>36 x 24 mm CMOS</td>
-            </tr>
-            <tr>
-              <td>Effective Pixels </td>
-              <td>Approx. 30.4 megapixels</td>
-            </tr>
-            <tr>
-              <td>AF System/ Points </td>
-              <td>61 Point / max of 41 cross-type AF points inc 5 dual cross type at f/2.8 and 61 points / 21 cross-type AF points at f/81</td>
-            </tr>
-            <tr>
-              <td>Shutter speed</td>
-              <td>30-1/8000 sec (1/2 or 1/3 stop increments), Bulb (Total shutter speed range. Available range varies by shooting mode)</td>
-            </tr>
+            {
+              this.props.characteristics.map(function(prop,i){
+                return <tr>
+                  <td>{prop.propName}</td>
+                  <td>{prop.propValue}</td>
+                </tr>
+              })
+            }
           </table>
         </div>
       </div>
+    }
 
     </div>;
   }
 }
+
+/*
+
+              for(var i=0; i < this.props.characteristics.length; i++) {
+                <tr>
+                  <td>{this.props.characteristics[i].propName}</td>
+                  <td>{this.props.characteristics[i].propValue}</td>
+                </tr>
+              }
+            }
+
+<tr>
+  <td>Image sensor type </td>
+  <td>36 x 24 mm CMOS</td>
+</tr>
+<tr>
+  <td>Effective Pixels </td>
+  <td>Approx. 30.4 megapixels</td>
+</tr>
+<tr>
+  <td>AF System/ Points </td>
+  <td>61 Point / max of 41 cross-type AF points inc 5 dual cross type at f/2.8 and 61 points / 21 cross-type AF points at f/81</td>
+</tr>
+<tr>
+  <td>Shutter speed</td>
+  <td>30-1/8000 sec (1/2 or 1/3 stop increments), Bulb (Total shutter speed range. Available range varies by shooting mode)</td>
+</tr>
+*/

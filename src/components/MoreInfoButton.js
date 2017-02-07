@@ -53,7 +53,9 @@ export default class MoreInfoButton extends React.Component {
         style={modalStyle}
          >
 
-        <MoreInfo />
+        <MoreInfo characteristics={[{propName: 'prop name 1', propValue: 'prop value 1'},{
+          propName: 'prop name 2', propValue: 'prop value 2'
+        }]} />
 
       </Modal>
     </button>;

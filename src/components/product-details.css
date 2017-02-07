@@ -54,6 +54,10 @@
   padding-bottom: 1em;
 }
 
+.product-characteristics > div {
+  display: inline-block;
+}
+
 
 @media (max-width: 767px) {
 
