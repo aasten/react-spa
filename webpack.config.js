@@ -39,10 +39,10 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /\.js$/,
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         // need .babelrc with 'es2015' preset written down in it
-        loader: 'babel',
+        loader: 'babel-loader',
           // optional: ['runtime'],
         plugins: ['transform-runtime'],
       },

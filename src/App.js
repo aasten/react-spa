@@ -1,6 +1,6 @@
 // jshint esversion: 6
 import React, { Component } from 'react';
-import MoreInfoButton from './components/MoreInfoButton.js';
+import MoreInfoButton from './components/Product/MoreInfoButton';
 import basecss from './base.css';
 import css from './style.css';
 

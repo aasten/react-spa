@@ -1,23 +1,33 @@
 // jshint esversion: 6
 import React from 'react';
-import basecss from '../base.css';
+import basecss from '../../base.css';
 import productdetailscss from './product-details.css';
-import facss from '../../font-awesome/css/font-awesome.min.css'
+import facss from '../../../font-awesome/css/font-awesome.min.css'
 
 
 export default class MoreInfo extends React.Component {
 
   static propTypes = {
-    characteristics: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
+    details: React.PropTypes.shape({
+      name: React.PropTypes.string.isRequired,
+      imgURL: React.PropTypes.string,
+      rate: React.PropTypes.oneOf([0,1,2,3,4,5]),
+      price: React.PropTypes.number.isRequired,
+      characteristics: React.PropTypes.arrayOf(React.PropTypes.shape({
+        propName: React.PropTypes.string.isRequired,
+        propName: React.PropTypes.string.isRequired})).isRequired
+    }).isRequired,
   }
 
   render() {
+    if(!this.props.details) return <p>No details available</p>;
+
     return <div className="product-details">
       <div className="product-image">
-        <img src="img/canon.png" alt="Product Photo" />
+        <img src={this.props.details.imgURL} alt="No Photo" />
       </div>
 
-      <h1>Canon EOS 5D</h1>
+      <h1>{this.props.details.name}</h1>
 
       <div className="starring">
         <div> <span>Buyers' rate:</span>
@@ -30,15 +40,12 @@ export default class MoreInfo extends React.Component {
       </div>
 
       <p className="price">
-        Price: <span className="cost">2000</span>
+        Price: <span className="cost">{this.props.details.price}</span>
       </p>
 
-      <p className="buy-statistics">
-        Total buyings: <span className="count-buyings">0</span>
-      </p>
 
       {
-      this.props.characteristics &&
+      this.props.details.characteristics &&
       <div className="product-characteristics">
         <h2>Characteristics</h2>
         <div>
@@ -48,7 +55,7 @@ export default class MoreInfo extends React.Component {
               <th>Specification</th>
             </tr>
             {
-              this.props.characteristics.map(function(prop,i){
+              this.props.details.characteristics.map(function(prop,i){
                 return <tr>
                   <td>{prop.propName}</td>
                   <td>{prop.propValue}</td>
@@ -58,7 +65,7 @@ export default class MoreInfo extends React.Component {
           </table>
         </div>
       </div>
-    }
+      }
 
     </div>;
   }
