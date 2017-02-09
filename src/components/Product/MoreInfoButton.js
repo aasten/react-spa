@@ -1,10 +1,8 @@
-// jshint esversion: 6
 import React from 'react';
 import entrycss from './entry.css';
 import css from '../../style.css';
 import Modal from 'react-modal';
-import MoreInfo from './MoreInfo'
-
+import MoreInfo from './MoreInfo';
 
 
 export default class MoreInfoButton extends React.Component {
@@ -43,7 +41,7 @@ export default class MoreInfoButton extends React.Component {
       }
     };
 
-    const details = {name: 'Canon EOS 5D', imgURL: 'img/canon.png', /*price: 2000,*/ characteristics:[
+    const details = {name: 'Canon EOS 5D', imgURL: 'img/canon.png', price: 2000, characteristics:[
                             {propName: 'prop name 1', propValue: 'prop value 1'},
                             {propName: 'prop name 2', propValue: 'prop value 2'}]};
     return <button className="more-info action-button" onClick={this.openModal}>
@@ -56,7 +54,7 @@ export default class MoreInfoButton extends React.Component {
         style={modalStyle}
          >
 
-        <MoreInfo details={details} />
+        <MoreInfo />
 
       </Modal>
     </button>;

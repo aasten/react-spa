@@ -1,11 +1,10 @@
-// jshint esversion: 6
 import React from 'react';
 import basecss from '../../base.css';
 import productdetailscss from './product-details.css';
-import facss from '../../../font-awesome/css/font-awesome.min.css'
+import facss from '../../../font-awesome/css/font-awesome.min.css';
 
 
-export default class MoreInfo extends React.Component {
+class MoreInfo extends React.Component {
 
   static propTypes = {
     details: React.PropTypes.shape({
@@ -45,7 +44,7 @@ export default class MoreInfo extends React.Component {
 
 
       {
-      this.props.details.characteristics &&
+      this.props.details.characteristics && Array.isArray(this.props.details.characteristics) &&
       <div className="product-characteristics">
         <h2>Characteristics</h2>
         <div>
@@ -70,6 +69,15 @@ export default class MoreInfo extends React.Component {
     </div>;
   }
 }
+
+const extractDetailsToProps = function(store) {
+  return {
+    // TODO вопрос, можно ли получать через функцию (задержка и т.п.)
+    details: store.getState().currentEntry.details
+  };
+}
+
+export default connect(extractDetailsToProps)(MoreInfo);
 
 /*
 
