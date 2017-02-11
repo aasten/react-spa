@@ -1,9 +1,8 @@
 import {combineReducers} from 'redux';
-import entrySelection from 'entrySelection';
+import entrySelection from './components/Product/reducers';
 
-export default function (initialState={}) {
-  return combineReducers(
+export default combineReducers(
     {
-      selectedEntryId: entrySelection
+      currentEntry: entrySelection,
+      isShowingDetailsModal: showingModal
     });
-}

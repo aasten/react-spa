@@ -10,6 +10,7 @@
     "file-loader": "^0.10.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
+    "redux-thunk": "^2.2.0",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7"
   },
@@ -23,6 +24,7 @@
     "react-dom": "^15.4.2",
     "react-modal": "^1.6.5",
     "react-modal-dialog": "^4.0.5",
+    "react-spinner": "^0.2.6",
     "webpack": "^1.14.0"
   }
 }

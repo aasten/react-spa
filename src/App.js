@@ -4,6 +4,7 @@ import basecss from './base.css';
 import css from './style.css';
 
 export default class App extends Component {
+  static path = '/';
   render() {
     return (
 

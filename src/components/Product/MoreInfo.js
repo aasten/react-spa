@@ -2,6 +2,7 @@ import React from 'react';
 import basecss from '../../base.css';
 import productdetailscss from './product-details.css';
 import facss from '../../../font-awesome/css/font-awesome.min.css';
+import Spinner from 'react-spinner';
 
 
 class MoreInfo extends React.Component {
@@ -18,15 +19,20 @@ class MoreInfo extends React.Component {
     }).isRequired,
   }
 
-  render() {
-    if(!this.props.details) return <p>No details available</p>;
+  static path = '/details/*'
 
-    return <div className="product-details">
+  render() {
+    const details = this.props.details;
+
+    if(!details) return <p>No details available</p>;
+
+    return details.isLoading ? <Spinner /> :
+    <div className="product-details">
       <div className="product-image">
-        <img src={this.props.details.imgURL} alt="No Photo" />
+        <img src={details.imgURL} alt="No Photo" />
       </div>
 
-      <h1>{this.props.details.name}</h1>
+      <h1>{details.name}</h1>
 
       <div className="starring">
         <div> <span>Buyers' rate:</span>
@@ -39,12 +45,12 @@ class MoreInfo extends React.Component {
       </div>
 
       <p className="price">
-        Price: <span className="cost">{this.props.details.price}</span>
+        Price: <span className="cost">{details.price}</span>
       </p>
 
 
       {
-      this.props.details.characteristics && Array.isArray(this.props.details.characteristics) &&
+      details.characteristics && Array.isArray(details.characteristics) &&
       <div className="product-characteristics">
         <h2>Characteristics</h2>
         <div>
@@ -54,12 +60,7 @@ class MoreInfo extends React.Component {
               <th>Specification</th>
             </tr>
             {
-              this.props.details.characteristics.map(function(prop,i){
-                return <tr>
-                  <td>{prop.propName}</td>
-                  <td>{prop.propValue}</td>
-                </tr>
-              })
+              details.characteristics.map(this.renderCharacteristicsEntry)
             }
           </table>
         </div>
@@ -68,16 +69,24 @@ class MoreInfo extends React.Component {
 
     </div>;
   }
+
+  renderCharacteristicsEntry(item, index) {
+    return (
+    <tr>
+      <td>{item.propName}</td>
+      <td>{item.propValue}</td>
+    </tr> );
+  }
 }
 
-const extractDetailsToProps = function(store) {
+const mapStateToProps = function(state) {
   return {
     // TODO вопрос, можно ли получать через функцию (задержка и т.п.)
-    details: store.getState().currentEntry.details
+    details: state.currentEntry.details
   };
 }
 
-export default connect(extractDetailsToProps)(MoreInfo);
+export default connect(mapStateToProps)(MoreInfo);
 
 /*
 
