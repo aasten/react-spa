@@ -53,7 +53,7 @@ class MoreInfoModal extends React.Component {
 const mapStateToProps = function(state) {
   return {
     // TODO вопрос, можно ли получать через функцию (задержка и т.п.)
-    isShowingModal: state.isShowingDetailsModal
+    isShowingModal: state.currentEntry.isShowingDetailsModal
   };
 }
 

@@ -18,8 +18,10 @@ export function selectEntry(entryId) {
 
 export function selectEntryAndShowModal(entryId) {
   return (dispatch,getState) => {
-    console.log('selectEntry action: ',getState());
+    console.log('state before selectEntry: ',getState());
     dispatch(selectEntry(entryId));
+    console.log('state before showModal: ',getState());
     dispatch(showModal);
+    console.log('state after showModal: ',getState());
   };
 }
