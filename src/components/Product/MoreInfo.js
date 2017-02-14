@@ -3,6 +3,7 @@ import basecss from '../../base.css';
 import productdetailscss from './product-details.css';
 import facss from '../../../font-awesome/css/font-awesome.min.css';
 import Spinner from 'react-spinner';
+import {connect} from 'react-redux';
 
 
 class MoreInfo extends React.Component {

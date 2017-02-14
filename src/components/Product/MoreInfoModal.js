@@ -1,9 +1,12 @@
 import React from 'react';
 import Modal from 'react-modal';
+import {connect} from 'react-redux';
 import MoreInfo from './MoreInfo';
 import {closeModal} from './actions';
 
-export default class MoreInfoModal extends React.Component {
+class MoreInfoModal extends React.Component {
+  close = () => {this.props.dispatch(closeModal())};
+
   render() {
     const modalStyle = {
       overlay : {
@@ -34,7 +37,7 @@ export default class MoreInfoModal extends React.Component {
     return (
       <Modal
         isOpen={this.props.isShowingModal}
-        onRequestClose={closeModal}
+        onRequestClose={this.close}
         contentLabel="Product details"
         shouldCloseOnOverlayClick={true}
         style={modalStyle}
@@ -50,7 +53,7 @@ export default class MoreInfoModal extends React.Component {
 const mapStateToProps = function(state) {
   return {
     // TODO вопрос, можно ли получать через функцию (задержка и т.п.)
-    isShowingModal: state.isShowingModal
+    isShowingModal: state.isShowingDetailsModal
   };
 }
 

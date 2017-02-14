@@ -1,5 +1,5 @@
 import {combineReducers} from 'redux';
-import entrySelection from './components/Product/reducers';
+import {entrySelection, showingModal} from './components/Product/reducers';
 
 export default combineReducers(
     {
