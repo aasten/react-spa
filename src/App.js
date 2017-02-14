@@ -191,7 +191,7 @@ export default class App extends Component {
                 <button className="add-to-cart action-button">
                   Add to cart
                 </button>
-                <MoreInfoButton />
+                <MoreInfoButton entryId="1"/>
               </div>
             </div>
 

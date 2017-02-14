@@ -3,8 +3,7 @@ import {SELECT_ENTRY,SHOW_MODAL,CLOSE_MODAL} from './actions';
 export function entrySelection(state={}, action) {
   switch(action.type) {
     // state.currentEntry.id = action.id
-    case SELECT_ENTRY: return Object.assign({},state,
-      Object.assign(state.currentEntry, {id: action.id}));
+    case SELECT_ENTRY: return Object.assign({},state, {id: action.id});
   }
   return state;
 }
