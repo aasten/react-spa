@@ -21,7 +21,7 @@ export function selectEntryAndShowModal(entryId) {
     console.log('state before selectEntry: ',getState());
     dispatch(selectEntry(entryId));
     console.log('state before showModal: ',getState());
-    dispatch(showModal);
+    dispatch(showModal());
     console.log('state after showModal: ',getState());
   };
 }

@@ -8,6 +8,7 @@ class MoreInfoModal extends React.Component {
   close = () => {this.props.dispatch(closeModal())};
 
   render() {
+console.log(this.props.isShowingModal);
     const modalStyle = {
       overlay : {
         position: 'fixed',
