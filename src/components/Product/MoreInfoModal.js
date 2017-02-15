@@ -8,7 +8,7 @@ class MoreInfoModal extends React.Component {
   close = () => {this.props.dispatch(closeModal())};
 
   render() {
-console.log(this.props.isShowingModal);
+
     const modalStyle = {
       overlay : {
         position: 'fixed',
@@ -44,7 +44,8 @@ console.log(this.props.isShowingModal);
         style={modalStyle}
          >
 
-        <MoreInfo />
+        <MoreInfo details={this.props.details} isLoading={this.props.isLoading}
+          failure={this.props.failure}/>
 
       </Modal>
     );
@@ -54,7 +55,10 @@ console.log(this.props.isShowingModal);
 const mapStateToProps = function(state) {
   return {
     // TODO вопрос, можно ли получать через функцию (задержка и т.п.)
-    isShowingModal: state.currentEntry.isShowingDetailsModal
+    isShowingModal: state.entryDetails.isShowingModal,
+    details: state.entryDetails.details,
+    isLoading: state.entryDetails.isLoading,
+    failure: state.entryDetails.failure,
   };
 }
 

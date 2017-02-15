@@ -5,8 +5,8 @@ import facss from '../../../font-awesome/css/font-awesome.min.css';
 import Spinner from 'react-spinner';
 import {connect} from 'react-redux';
 
-
-class MoreInfo extends React.Component {
+// presentation component
+export default class MoreInfo extends React.Component {
 
   static propTypes = {
     details: React.PropTypes.shape({
@@ -23,11 +23,13 @@ class MoreInfo extends React.Component {
   static path = '/details/*'
 
   render() {
+    if(this.props.failure) return <p>{this.props.failure}</p>;
+
     const details = this.props.details;
 
     if(!details) return <p>No details available</p>;
 
-    return details.isLoading ? <Spinner /> :
+    return this.props.isLoading ? <Spinner /> :
     <div className="product-details">
       <div className="product-image">
         <img src={details.imgURL} alt="No Photo" />
@@ -80,14 +82,14 @@ class MoreInfo extends React.Component {
   }
 }
 
-const mapStateToProps = function(state) {
-  return {
-    // TODO вопрос, можно ли получать через функцию (задержка и т.п.)
-    details: state.currentEntry.details
-  };
-}
-
-export default connect(mapStateToProps)(MoreInfo);
+// const mapStateToProps = function(state) {
+//   return {
+//     // TODO вопрос, можно ли получать через функцию (задержка и т.п.)
+//     details: state.currentEntry.details
+//   };
+// }
+//
+// export default connect(mapStateToProps)(MoreInfo);
 
 /*
 
