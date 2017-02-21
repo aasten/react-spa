@@ -6,7 +6,7 @@ import Spinner from 'react-spinner';
 import {connect} from 'react-redux';
 
 // presentation component
-export default class MoreInfo extends React.Component {
+class MoreInfo extends React.Component {
 
   static propTypes = {
     details: React.PropTypes.shape({
@@ -20,7 +20,7 @@ export default class MoreInfo extends React.Component {
     }).isRequired,
   }
 
-  static path = '/details/*'
+  static path = '/product/*'
 
   render() {
     if(this.props.failure) return <p>{this.props.failure}</p>;
@@ -81,6 +81,16 @@ export default class MoreInfo extends React.Component {
     </tr> );
   }
 }
+
+const mapStateToProps = function(state) {
+  return {
+    details: state.entryDetails.details,
+    isLoading: state.entryDetails.isLoading,
+    // failure: state.entryDetails.failure,
+  };
+}
+
+export default connect(mapStateToProps)(MoreInfo);
 
 // const mapStateToProps = function(state) {
 //   return {

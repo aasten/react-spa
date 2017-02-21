@@ -1,4 +1,4 @@
-
+import {RESTRootURL} from '../../params';
 export const SELECT_ENTRY = 'SELECT_ENTRY';
 export const SHOW_MODAL = 'SHOW_MODAL';
 export const CLOSE_MODAL = 'CLOSE_MODAL';
@@ -36,7 +36,7 @@ export function loadEntryDetailsFailed(failure) {
 export function loadEntryDetails(entryId) {
   return (dispatch) => {
     dispatch(loadingEntryDetails());
-    fetch(`http://localhost/entry/${entryId}/details`).then(
+    fetch(`${RESTRootURL}/entry/${entryId}`).then(
       (data) => data.json(),
       (failure) => dispatch(loadEntryDetailsFailed(failure)))
       .then((jsonDetails) => dispatch(loadedEntryDetails(jsonDetails))
