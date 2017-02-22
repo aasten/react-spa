@@ -199,6 +199,10 @@ body {
   height: calc(100% + 10px);
 }
 
+.order-basket:hover {
+  cursor: pointer;
+}
+
 .order-basket > div {
   display: inline-block;
   vertical-align: top;

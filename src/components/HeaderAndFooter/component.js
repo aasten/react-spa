@@ -63,11 +63,9 @@ class HeaderAndFooter extends React.Component {
 
             <div className="navigation-bar">
 
-              <div className="order-basket">
+              <div className="order-basket" onClick={()=>this.props.dispatch(showBasketModal())}>
                 <div>
-                  <a onClick={()=>this.props.dispatch(showBasketModal())}>
-                    <img src="/img/greenbasket.png" />
-                  </a>
+                  <img src="/img/greenbasket.png" />
                   <BasketModal />
                 </div>
                 <div>
