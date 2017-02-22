@@ -1,6 +1,7 @@
 import React from 'react';
 import FAcss from '../../../font-awesome/css/font-awesome.css';
 import css from '../../../css/shoppingcart.css';
+import PositionInTable from './PositionInTable';
 
 export default class BasketNonModal extends React.Component {
 
@@ -32,37 +33,9 @@ export default class BasketNonModal extends React.Component {
             Price
           </th>
         </tr>
-        <tr>
-          <td>
-            Bowling Shoes
-          </td>
-          <td>
-            1
-          </td>
-          <td>
-            $46
-          </td>
-          <td>
-            <i className="fa fa-times"></i> Remove
-          </td>
-        </tr>
 
-        {this.props.positions.map((o,i) =>
-          <tr key={i}>
-            <td>
-              {o.name}
-            </td>
-            <td>
-              {o.quantity}
-            </td>
-            <td>
-              ${o.price}
-            </td>
-            <td>
-              <i className="fa fa-times"></i> Remove
-            </td>
-          </tr>
-        )}
+        {this.props.positions.map((o,i) => <PositionInTable pos={o} />)}
+
       </tbody>
       </table>
       <button className="order-button">

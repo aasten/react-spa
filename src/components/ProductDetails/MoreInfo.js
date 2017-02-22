@@ -27,7 +27,7 @@ class MoreInfo extends React.Component {
 
     const details = this.props.details;
 
-    if(!details) return <p>No details available</p>;
+    if(!details) return <p>No details available for this product</p>;
 
     return this.props.isLoading ? <Spinner /> :
     <div className="product-details">
