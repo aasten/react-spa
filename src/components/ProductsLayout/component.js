@@ -77,12 +77,12 @@ export default class ProductsLayout extends React.Component {
               </div>
 
               <div className="product-actions">
-                <button className="add-to-cart action-button">
+                <a className="add-to-cart action-button">
                   Add to cart
-                </button>
-                <button className="more-info action-button">
+                </a>
+                <a className="more-info action-button">
                   More info
-                </button>
+                </a>
               </div>
             </div>
 
@@ -101,10 +101,12 @@ export default class ProductsLayout extends React.Component {
               </div>
 
               <div className="product-actions">
-                <button className="add-to-cart action-button">
+                <a className="add-to-cart action-button">
                   Add to cart
-                </button>
-
+                </a>
+                <a className="more-info action-button">
+                  More info
+                </a>
               </div>
             </div>
 
@@ -123,12 +125,12 @@ export default class ProductsLayout extends React.Component {
               </div>
 
               <div className="product-actions">
-                <button className="add-to-cart action-button">
+                <a className="add-to-cart action-button">
                   Add to cart
-                </button>
-                <button className="more-info action-button">
+                </a>
+                <a className="more-info action-button">
                   More info
-                </button>
+                </a>
               </div>
             </div>
 
@@ -147,12 +149,12 @@ export default class ProductsLayout extends React.Component {
               </div>
 
               <div className="product-actions">
-                <button className="add-to-cart action-button">
+                <a className="add-to-cart action-button">
                   Add to cart
-                </button>
-                <button className="more-info action-button">
+                </a>
+                <a className="more-info action-button">
                   More info
-                </button>
+                </a>
               </div>
             </div>
 

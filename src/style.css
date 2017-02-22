@@ -463,7 +463,7 @@ body {
   background: -ms-linear-gradient(top, #FAFAFA, #EDEDED); /* для IE10+ */
 }
 
-/*.more-info {
+.more-info {
   width: 120px;
   border-radius: 0 3px 3px 0;
   background-color: #DEDEDE;
@@ -472,7 +472,7 @@ body {
   background: -moz-linear-gradient(top, #EDEDED, #E5E5E5);
   background: -o-linear-gradient(top, #EDEDED, #E5E5E5);
   background: -ms-linear-gradient(top, #EDEDED, #E5E5E5);
-}*/
+}
 
 .action-button {
   color: #878787;
@@ -480,6 +480,11 @@ body {
   padding: 0.5em 0;
   border: 1px solid #DDD;
   text-transform: uppercase;
+}
+
+a.action-button {
+  text-decoration: none;
+  display: inline-block;
 }
 
 .action-button > * {
@@ -734,9 +739,9 @@ body {
   width: 105px;
 }
 
-/*.more-info {
+.more-info {
   width: 95px;
-}*/
+}
 
 .action-button {
   font-size: 12px;
