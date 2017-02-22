@@ -72,6 +72,9 @@ module.exports = {
     ],
   },
 
+  devServer: {
+      historyApiFallback: true
+  }
   // devServer: {
   //   historyApiFallback: true,
   //   watchOptions: { aggregateTimeout: 300, poll: 1000 },

@@ -33,7 +33,7 @@ class ProductEntry extends React.Component {
             <a className="add-to-cart action-button" onClick={()=>this.props.dispatch(addToBasket(display.id,display.name,display.price))}>
               Add to cart
             </a>
-            <a className="more-info action-button" href={"/details/"+display.id}>
+            <a className="more-info action-button" href={"/product/"+display.id}>
               More info
             </a>
           </div>

@@ -62,10 +62,10 @@ export default class ProductsLayout extends React.Component {
             <div className="slider-line center-vertically">
             </div>
             <div className="arrow-image left-arrow center-vertically">
-              <img src="img/slider-left-arrow.png" />
+              <img src="/img/slider-left-arrow.png" />
             </div>
             <div className="arrow-image right-arrow center-vertically">
-              <img src="img/slider-right-arrow.png" />
+              <img src="/img/slider-right-arrow.png" />
             </div>
           </div>
 

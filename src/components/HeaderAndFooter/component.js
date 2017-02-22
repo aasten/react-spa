@@ -20,10 +20,10 @@ class HeaderAndFooter extends React.Component {
           <div className="panel-addons">
 
             <div className="social-networks">
-              <img src="img/facebook.png" />
-              <img src="img/twitter.png" />
-              <img src="img/linkedin.png" />
-              <img src="img/rss.png" />
+              <img src="/img/facebook.png" />
+              <img src="/img/twitter.png" />
+              <img src="/img/linkedin.png" />
+              <img src="/img/rss.png" />
             </div>
 
             <div className="search-bar">
@@ -33,7 +33,7 @@ class HeaderAndFooter extends React.Component {
 
           </div>
 
-          <a href="#">Home</a>
+          <a href="/">Home</a>
           <a href="#">Category</a>
           <a href="#">Contact</a>
           <a href="#">About</a>
@@ -49,7 +49,7 @@ class HeaderAndFooter extends React.Component {
 
           <div className="logo-area">
             <div className="logo">
-              <img src="img/logo.png" />
+              <img src="/img/logo.png" />
               <p className="logo-description">The best ecommerce blogger template</p>
             </div>
           </div>
@@ -66,7 +66,7 @@ class HeaderAndFooter extends React.Component {
               <div className="order-basket">
                 <div>
                   <a onClick={()=>this.props.dispatch(showBasketModal())}>
-                    <img src="img/greenbasket.png" />
+                    <img src="/img/greenbasket.png" />
                   </a>
                   <BasketModal />
                 </div>
@@ -83,7 +83,7 @@ class HeaderAndFooter extends React.Component {
                 </div>
               </div>
 
-              <a href="#">Home</a>
+              <a href="/">Home</a>
               <a href="#">Product Category</a>
               <a href="#">Sample Page</a>
               <a href="#">How To Use?</a>
@@ -102,8 +102,8 @@ class HeaderAndFooter extends React.Component {
           <p className="copyright">Copyright 2011 <a href="#">Blogger Store v.2</a></p>
           <p className="powered-by">Powered by Blogger. Design by <a href="#">Java Templates - Blogger Templates 2012</a></p>
         </div>
-        <a className="center-vertically" href="#"><img src="img/google-checkout.png" /></a>
-        <a className="center-vertically" href="#"><img src="img/paypal-payment.png" /></a>
+        <a className="center-vertically" href="#"><img src="/img/google-checkout.png" /></a>
+        <a className="center-vertically" href="#"><img src="/img/paypal-payment.png" /></a>
         <div></div>
       </div>
 
