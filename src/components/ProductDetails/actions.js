@@ -28,29 +28,32 @@ console.log('loaded:',details);
   return {type: LOADED_ENTRY_DETAILS, details: details};
 }
 
-export function loadEntryDetailsFailed(failure) {
-  return {type: LOAD_ENTRY_DETAILS_FAILED, failure: failure};
+export function loadEntryDetailsFailed(failure, entryId) {
+  return {type: LOAD_ENTRY_DETAILS_FAILED, failure: failure, entryId: entryId};
 }
 
 
 export function loadEntryDetails(entryId) {
+  console.log('invoked loadEntryDetails');
   return (dispatch) => {
     dispatch(loadingEntryDetails());
-    fetch(`${RESTRootURL}/entry/${entryId}`).then(
+console.log('fetching',`${RESTRootURL}/product/${entryId}`);
+    fetch(`${RESTRootURL}/product/${entryId}`).then(
       (data) => data.json(),
       (failure) => dispatch(loadEntryDetailsFailed(failure)))
-      .then((jsonDetails) => dispatch(loadedEntryDetails(jsonDetails))
-    );
+      .then(
+        (jsonDetails) => dispatch(loadedEntryDetails(jsonDetails)),
+        (failure) => dispatch(loadEntryDetailsFailed(failure)));
   };
 }
 
-export function selectEntryAndShowModal(entryId) {
-  return (dispatch,getState) => {
-    console.log('state before selectEntry: ',getState());
-    dispatch(selectEntry(entryId));
-    console.log('state before showModal: ',getState());
-    dispatch(loadEntryDetails(entryId));
-    dispatch(showModal());
-    console.log('state after showModal: ',getState());
-  };
-}
+// export function selectEntryAndShowModal(entryId) {
+//   return (dispatch,getState) => {
+// console.log('state before selectEntry: ',getState());
+//     dispatch(selectEntry(entryId));
+//     console.log('state before showModal: ',getState());
+//     dispatch(loadEntryDetails(entryId));
+//     dispatch(showModal());
+//     console.log('state after showModal: ',getState());
+//   };
+// }

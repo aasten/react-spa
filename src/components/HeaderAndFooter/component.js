@@ -70,13 +70,13 @@ class HeaderAndFooter extends React.Component {
                 </div>
                 <div>
                   <p className="items-in-basket">
-                    <span>My Cart :</span>
-                    <span className="items-in-basket-value"></span>
-                    <span>item(s)</span>
+                    <span>My Cart : </span>
+                    <span className="items-in-basket-value">{this.props.itemsInBasket}</span>
+                    <span> item(s)</span>
                   </p>
                   <p className="basket-total-price">
-                    <span>Total Price :</span>
-                    <span className="basket-total-price-value"></span>
+                    <span>Total Price : </span>
+                    <span className="basket-total-price-value">${this.props.totalPrice}</span>
                   </p>
                 </div>
               </div>
@@ -113,7 +113,8 @@ class HeaderAndFooter extends React.Component {
 
 const mapStateToProps = function(state) {
   return {
-    state
+    itemsInBasket: state.basket.totalItemsCount,
+    totalPrice: state.basket.totalPrice,
   };
 }
 

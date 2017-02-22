@@ -20,14 +20,14 @@ class MoreInfo extends React.Component {
     }).isRequired,
   }
 
-  static path = '/product/*'
+  static path = '/product/:id'
 
   render() {
     if(this.props.failure) return <p>{this.props.failure}</p>;
 
     const details = this.props.details;
 
-    if(!details) return <p>No details available for this product</p>;
+    if(!details) return <p>No details available for the product {this.props.params.id}</p>;
 
     return this.props.isLoading ? <Spinner /> :
     <div className="product-details">
@@ -86,7 +86,7 @@ const mapStateToProps = function(state) {
   return {
     details: state.entryDetails.details,
     isLoading: state.entryDetails.isLoading,
-    // failure: state.entryDetails.failure,
+    failure: state.entryDetails.failure,
   };
 }
 

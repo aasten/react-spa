@@ -219,11 +219,24 @@ body {
   font-size: 1.2rem;
   font-weight: bold;
   margin: 15px 0.5em 0.2em 0;
+  vertical-align: bottom;
 }
+
+.items-in-basket-value {
+  font-size: 1.4em;
+  font-weight: bold;
+  color: red;
+}
+
 
 .basket-total-price {
   font-size: 0.85rem;
   margin: 0.1em 0;
+}
+
+.basket-total-price-value {
+  font-weight: bold;
+  color: red;
 }
 
 .goods-block {
