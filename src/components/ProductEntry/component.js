@@ -2,6 +2,7 @@ import React from 'react';
 import basecss from '../../../css/base.css';
 import css from '../../../css/style.css';
 import {addToBasket} from '../Basket/actions';
+import {loadEntryDetails} from '../ProductDetails/actions';
 import {connect} from 'react-redux';
 
 class ProductEntry extends React.Component {
@@ -33,7 +34,7 @@ class ProductEntry extends React.Component {
             <a className="add-to-cart action-button" onClick={()=>this.props.dispatch(addToBasket(display.id,display.name,display.price))}>
               Add to cart
             </a>
-            <a className="more-info action-button" href={"/product/"+display.id}>
+            <a className="more-info action-button" href={"/product/"+display.id} onClick={()=>this.props.dispatch(loadEntryDetails(display.id))}>
               More info
             </a>
           </div>
