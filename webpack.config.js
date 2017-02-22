@@ -65,7 +65,8 @@ module.exports = {
         // loader:'style!css-loader?modules=true&localIdentName=%5Bname%5D__%5Blocal%5D--%5Bhash%3Abase64%3A5%5D'
       },
       { test: /\.(png)$/, loader: 'url-loader?limit=100000' },
-      { test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "url-loader?limit=10000&mimetype=application/font-woff" },
+      { test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "url-loader?limit=10000" },
+      // { test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "url-loader?limit=10000&mimetype=application/font-woff" },
       { test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "file-loader" },
       // { test: /\.(woff|woff2)$/, loader: 'url-loader?limit=100000&name=[name]-[hash].[ext]' }
     ],

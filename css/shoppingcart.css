@@ -1,7 +1,6 @@
 
 .cart-details {
   max-width: 380px;
-  box-shadow: 5px 5px 5px grey;
   overflow: auto;
   padding: 1em 2em;
   text-align: center;
@@ -10,10 +9,6 @@
 table td {
   text-align: right;
 }
-
-/*table th:nth-last-child(1) {
-  display: none;
-}*/
 
 table tr td:last-child {
   border: none;
@@ -29,8 +24,6 @@ table tr td:last-child:hover {
 table tr td:first-child {
   text-align: left;
 }
-
-
 
 .order-button {
   display: inline-block;

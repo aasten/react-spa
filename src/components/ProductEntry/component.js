@@ -1,9 +1,10 @@
 import React from 'react';
-import basecss from '../../base.css';
-import css from '../../style.css';
+import basecss from '../../../css/base.css';
+import css from '../../../css/style.css';
+import {addToBasket} from '../Basket/actions';
+import {connect} from 'react-redux';
 
-
-export default class ProductEntry extends React.Component {
+class ProductEntry extends React.Component {
   static propTypes = {
     display: React.PropTypes.shape({
       id: React.PropTypes.string.isRequired,
@@ -11,6 +12,7 @@ export default class ProductEntry extends React.Component {
       imgURL: React.PropTypes.string.isRequired,
       price: React.PropTypes.number.isRequired}).isRequired
   }
+
 
   render() {
     const display = this.props.display;
@@ -28,7 +30,7 @@ export default class ProductEntry extends React.Component {
           </div>
 
           <div className="product-actions">
-            <a className="add-to-cart action-button">
+            <a className="add-to-cart action-button" onClick={()=>this.props.dispatch(addToBasket(display.id,display.name,display.price))}>
               Add to cart
             </a>
             <a className="more-info action-button" href={"/details/"+display.id}>
@@ -40,3 +42,11 @@ export default class ProductEntry extends React.Component {
     );
   }
 }
+
+const mapStateToProps = function(state) {
+  return {
+    state
+  };
+}
+// to make possible action dispatching
+export default connect(mapStateToProps)(ProductEntry);

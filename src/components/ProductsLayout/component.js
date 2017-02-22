@@ -1,6 +1,6 @@
 import React from 'react';
-import basecss from '../../base.css';
-import css from '../../style.css';
+import basecss from '../../../css/base.css';
+import css from '../../../css/style.css';
 import ProductEntry from '../ProductEntry/component';
 
 export default class ProductsLayout extends React.Component {

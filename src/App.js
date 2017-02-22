@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import basecss from './base.css';
-import css from './style.css';
 import HeaderAndFooter from './components/HeaderAndFooter/component';
 
 export default class App extends Component {
@@ -10,11 +8,9 @@ export default class App extends Component {
   static path = '/';
   render() {
     return (
-      <div className="content-block">
         <HeaderAndFooter>
           {this.props.children}
         </HeaderAndFooter>
-      </div>
     );
   }
 }

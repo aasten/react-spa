@@ -1,14 +1,17 @@
 import React from 'react';
+import {showModal as showBasketModal} from '../Basket/actions';
+import BasketModal from '../Basket/component';
+import {connect} from 'react-redux';
 
 // presentation component
-export default class HeaderAndFooter extends React.Component {
+class HeaderAndFooter extends React.Component {
   static propTypes = {
     children: React.PropTypes.any.isRequired
   };
 
   render() {
     return (
-    <div>
+    <div className="content-block">
 
       <div className="goods-bordering-block">
 
@@ -62,9 +65,10 @@ export default class HeaderAndFooter extends React.Component {
 
               <div className="order-basket">
                 <div>
-                  <a href="#">
+                  <a onClick={()=>this.props.dispatch(showBasketModal())}>
                     <img src="img/greenbasket.png" />
                   </a>
+                  <BasketModal />
                 </div>
                 <div>
                   <p className="items-in-basket">
@@ -108,3 +112,11 @@ export default class HeaderAndFooter extends React.Component {
     );
   }
 }
+
+const mapStateToProps = function(state) {
+  return {
+    state
+  };
+}
+
+export default connect(mapStateToProps)(HeaderAndFooter);
