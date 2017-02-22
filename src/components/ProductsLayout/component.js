@@ -1,10 +1,21 @@
 import React from 'react';
 import basecss from '../../base.css';
 import css from '../../style.css';
+import ProductEntry from '../ProductEntry/component';
 
 export default class ProductsLayout extends React.Component {
 
+  static propTypes = {
+    entries: React.PropTypes.arrayOf(React.PropTypes.shape({
+      id: React.PropTypes.string.isRequired,
+      name: React.PropTypes.string.isRequired,
+      imgURL: React.PropTypes.string.isRequired,
+      price: React.PropTypes.number.isRequired})).isRequired
+  }
+
   render() {
+    const entries = this.props.entries;
+
     return (
       <div className="goods-block">
 
@@ -64,101 +75,7 @@ export default class ProductsLayout extends React.Component {
             <button className="detail-layout background-panel basic-layout-button">Detail</button>
           </div>
 
-          <div className="product-entry">
-            <div className="product-name background-panel">
-              Bowling shoes
-            </div>
-            <div className="product-content">
-              <div className="product-photo-area">
-                <img className="product-photo" src="img/obuv.png" alt="" />
-              </div>
-              <div className="product-price">
-                $46
-              </div>
-
-              <div className="product-actions">
-                <a className="add-to-cart action-button">
-                  Add to cart
-                </a>
-                <a className="more-info action-button">
-                  More info
-                </a>
-              </div>
-            </div>
-
-          </div>
-
-          <div className="product-entry">
-            <div className="product-name background-panel">
-              Canon EOS 5D
-            </div>
-            <div className="product-content">
-              <div className="product-photo-area">
-                <img className="product-photo" src="img/canon.png" alt="" />
-              </div>
-              <div className="product-price">
-                $46
-              </div>
-
-              <div className="product-actions">
-                <a className="add-to-cart action-button">
-                  Add to cart
-                </a>
-                <a className="more-info action-button">
-                  More info
-                </a>
-              </div>
-            </div>
-
-          </div>
-
-          <div className="product-entry">
-            <div className="product-name background-panel">
-              Bowling shoes
-            </div>
-            <div className="product-content">
-              <div className="product-photo-area">
-                <img className="product-photo" src="img/obuv.png" alt="" />
-              </div>
-              <div className="product-price">
-                $46
-              </div>
-
-              <div className="product-actions">
-                <a className="add-to-cart action-button">
-                  Add to cart
-                </a>
-                <a className="more-info action-button">
-                  More info
-                </a>
-              </div>
-            </div>
-
-          </div>
-
-          <div className="product-entry">
-            <div className="product-name background-panel">
-              Bowling shoes
-            </div>
-            <div className="product-content">
-              <div className="product-photo-area">
-                <img className="product-photo" src="img/obuv.png" alt="" />
-              </div>
-              <div className="product-price">
-                $46
-              </div>
-
-              <div className="product-actions">
-                <a className="add-to-cart action-button">
-                  Add to cart
-                </a>
-                <a className="more-info action-button">
-                  More info
-                </a>
-              </div>
-            </div>
-
-          </div>
+          {entries.map((display,i) => <ProductEntry display={display} key={i} />)}
 
           <div className="pagination-bar layout-control-panel background-panel">
             <span className="page-right"><a href="#">Next Product &raquo;</a></span>
@@ -173,4 +90,107 @@ export default class ProductsLayout extends React.Component {
   }
 }
 
-// <MoreInfoButton entryId="1"/>
+
+// const mapStateToProps = function(state) {
+//   return {
+//     entries: state.productsLayout.displayedEntries,
+//   };
+// }
+//
+// export default connect(mapStateToProps)(ProductsLayout);
+
+{/* <div className="product-entry">
+  <div className="product-name background-panel">
+    Bowling shoes
+  </div>
+  <div className="product-content">
+    <div className="product-photo-area">
+      <img className="product-photo" src="img/obuv.png" alt="" />
+    </div>
+    <div className="product-price">
+      $46
+    </div>
+
+    <div className="product-actions">
+      <a className="add-to-cart action-button">
+        Add to cart
+      </a>
+      <a className="more-info action-button">
+        More info
+      </a>
+    </div>
+  </div>
+
+</div>
+
+<div className="product-entry">
+  <div className="product-name background-panel">
+    Canon EOS 5D
+  </div>
+  <div className="product-content">
+    <div className="product-photo-area">
+      <img className="product-photo" src="img/canon.png" alt="" />
+    </div>
+    <div className="product-price">
+      $46
+    </div>
+
+    <div className="product-actions">
+      <a className="add-to-cart action-button">
+        Add to cart
+      </a>
+      <a className="more-info action-button">
+        More info
+      </a>
+    </div>
+  </div>
+
+</div>
+
+<div className="product-entry">
+  <div className="product-name background-panel">
+    Bowling shoes
+  </div>
+  <div className="product-content">
+    <div className="product-photo-area">
+      <img className="product-photo" src="img/obuv.png" alt="" />
+    </div>
+    <div className="product-price">
+      $46
+    </div>
+
+    <div className="product-actions">
+      <a className="add-to-cart action-button">
+        Add to cart
+      </a>
+      <a className="more-info action-button">
+        More info
+      </a>
+    </div>
+  </div>
+
+</div>
+
+<div className="product-entry">
+  <div className="product-name background-panel">
+    Bowling shoes
+  </div>
+  <div className="product-content">
+    <div className="product-photo-area">
+      <img className="product-photo" src="img/obuv.png" alt="" />
+    </div>
+    <div className="product-price">
+      $46
+    </div>
+
+    <div className="product-actions">
+      <a className="add-to-cart action-button">
+        Add to cart
+      </a>
+      <a className="more-info action-button">
+        More info
+      </a>
+    </div>
+  </div>
+
+</div> */}
