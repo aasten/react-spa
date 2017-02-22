@@ -48,28 +48,37 @@ module.exports = {
       },
       // making .css files available for importing in .js
       {
-        test:/\.css$/,loader:'style!css!'
+        test:/\.css$/,
+        // loader: combineLoaders([
+        // {
+        //   loader: 'style-loader'
+        // }, {
+        //   loader: 'css-loader',
+        //   query: {
+        //     modules: true,
+        //     localIdentName: '[name]__[local]___[hash:base64:5]'
+        //   }
+        //  }
+        // ])
+        loader:'style!css-loader?localIdentName=%5Bname%5D__%5Blocal%5D--%5Bhash%3Abase64%3A5%5D'
+        // loader:'style!css-loader'
+        // loader:'style!css-loader?modules=true&localIdentName=%5Bname%5D__%5Blocal%5D--%5Bhash%3Abase64%3A5%5D'
       },
-      { test: /\.(png|woff|woff2|eot|ttf|svg)$/, loader: 'url-loader?limit=100000' },
-      { test: /\.(png|woff|woff2|eot|ttf|svg)/, loader: 'url-loader?limit=30000&name=[name]-[hash].[ext]' }
+      { test: /\.(png)$/, loader: 'url-loader?limit=100000' },
+      { test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "url-loader?limit=10000&mimetype=application/font-woff" },
+      { test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "file-loader" },
+      // { test: /\.(woff|woff2)$/, loader: 'url-loader?limit=100000&name=[name]-[hash].[ext]' }
     ],
-    // rules: [
-    //   // making .css files available for importing in .js
-    //   {
-    //     test: /\.css$/,
-    //     use: ['style-loader', 'css-loader']
-    //   }
-    // ]
   },
 
-  devServer: {
-    historyApiFallback: true,
-    watchOptions: { aggregateTimeout: 300, poll: 1000 },
-    headers: {
-      "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
-      "Access-Control-Allow-Headers": "X-Requested-With, content-type, Authorization"
-    }
-  },
+  // devServer: {
+  //   historyApiFallback: true,
+  //   watchOptions: { aggregateTimeout: 300, poll: 1000 },
+  //   headers: {
+  //     "Access-Control-Allow-Origin": "*",
+  //     "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
+  //     "Access-Control-Allow-Headers": "X-Requested-With, content-type, Authorization"
+  //   }
+  // },
 
 };

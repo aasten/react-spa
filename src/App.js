@@ -4,6 +4,9 @@ import css from './style.css';
 import HeaderAndFooter from './components/HeaderAndFooter/component';
 
 export default class App extends Component {
+  static propTypes = {
+    children: React.PropTypes.any.isRequired
+  };
   static path = '/';
   render() {
     return (

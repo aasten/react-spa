@@ -1,6 +1,6 @@
 import React from 'react';
 import {Route, IndexRoute} from 'react-router';
-import {ProductsLayout} from './components/ProductsLayout/component';
+import ProductsLayout from './components/ProductsLayout/component';
 import ProductDetailsRoutes from './components/ProductDetails/routes';
 import App from './App';
 

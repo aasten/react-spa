@@ -1,7 +1,11 @@
 import React from 'react';
 
-
+// presentation component
 export default class HeaderAndFooter extends React.Component {
+  static propTypes = {
+    children: React.PropTypes.any.isRequired
+  };
+
   render() {
     return (
     <div>

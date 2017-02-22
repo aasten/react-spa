@@ -104,7 +104,7 @@ export default class ProductsLayout extends React.Component {
                 <button className="add-to-cart action-button">
                   Add to cart
                 </button>
-                <MoreInfoButton entryId="1"/>
+
               </div>
             </div>
 
@@ -170,3 +170,5 @@ export default class ProductsLayout extends React.Component {
     );
   }
 }
+
+// <MoreInfoButton entryId="1"/>
