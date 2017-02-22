@@ -28,8 +28,8 @@ console.log('loaded:',details);
   return {type: LOADED_ENTRY_DETAILS, details: details};
 }
 
-export function loadEntryDetailsFailed(failure, entryId) {
-  return {type: LOAD_ENTRY_DETAILS_FAILED, failure: failure, entryId: entryId};
+export function loadEntryDetailsFailed(failure) {
+  return {type: LOAD_ENTRY_DETAILS_FAILED, failure: failure};
 }
 
 

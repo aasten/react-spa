@@ -5,6 +5,7 @@ export function basket(state={isShowingModal: false, positions: [], totalItemsCo
     case Actions.SHOW_BASKET: return Object.assign({},state,{isShowingModal: true});
     case Actions.HIDE_BASKET: return Object.assign({},state,{isShowingModal: false});
 
+    // TODO maybe simplify calculations of totalItemsCount and totalPrice (to avoid addition mistakes)
     case Actions.ADD_TO_BASKET:
     {
       let alreadyExists = false;

@@ -2,6 +2,7 @@ import React from 'react';
 import {showModal as showBasketModal} from '../Basket/actions';
 import BasketModal from '../Basket/component';
 import {connect} from 'react-redux';
+import {Link} from 'react-router';
 
 // presentation component
 class HeaderAndFooter extends React.Component {
@@ -33,14 +34,14 @@ class HeaderAndFooter extends React.Component {
 
           </div>
 
-          <a href="/">Home</a>
-          <a href="#">Category</a>
-          <a href="#">Contact</a>
-          <a href="#">About</a>
-          <a href="#">Home</a>
-          <a href="#">Category</a>
-          <a href="#">Contact</a>
-          <a href="#">About</a>
+          <Link to="/">Home</Link>
+          <Link to="#">Category</Link>
+          <Link to="#">Contact</Link>
+          <Link to="#">About</Link>
+          <Link to="#">Home</Link>
+          <Link to="#">Category</Link>
+          <Link to="#">Contact</Link>
+          <Link to="#">About</Link>
 
         </div>
 
@@ -81,11 +82,11 @@ class HeaderAndFooter extends React.Component {
                 </div>
               </div>
 
-              <a href="/">Home</a>
-              <a href="#">Product Category</a>
-              <a href="#">Sample Page</a>
-              <a href="#">How To Use?</a>
-              <a href="#">Get it!</a>
+              <Link to="/">Home</Link>
+              <Link to="#">Product Category</Link>
+              <Link to="#">Sample Page</Link>
+              <Link to="#">How To Use?</Link>
+              <Link to="#">Get it!</Link>
 
 
             </div>
@@ -97,11 +98,11 @@ class HeaderAndFooter extends React.Component {
 
       <div className="footer-block goods-bordering-block">
         <div className="about">
-          <p className="copyright">Copyright 2011 <a href="#">Blogger Store v.2</a></p>
-          <p className="powered-by">Powered by Blogger. Design by <a href="#">Java Templates - Blogger Templates 2012</a></p>
+          <p className="copyright">Copyright 2011 <Link to="#">Blogger Store v.2</Link></p>
+          <p className="powered-by">Powered by Blogger. Design by <Link to="#">Java Templates - Blogger Templates 2012</Link></p>
         </div>
-        <a className="center-vertically" href="#"><img src="/img/google-checkout.png" /></a>
-        <a className="center-vertically" href="#"><img src="/img/paypal-payment.png" /></a>
+        <Link className="center-vertically" to="#"><img src="/img/google-checkout.png" /></Link>
+        <Link className="center-vertically" to="#"><img src="/img/paypal-payment.png" /></Link>
         <div></div>
       </div>
 
