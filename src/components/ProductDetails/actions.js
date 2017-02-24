@@ -39,11 +39,12 @@ export function loadEntryDetails(entryId) {
     dispatch(loadingEntryDetails());
 console.log('fetching',`${RESTRootURL}/entry/${entryId}`);
     fetch(`${RESTRootURL}/entry/${entryId}`).then(
-      (data) => data.json(),
-      (failure) => dispatch(loadEntryDetailsFailed(failure)))
+      (response) => { if (response.ok) return response.json();
+          else throw new Error(response.statusText);})
       .then(
-        (jsonDetails) => dispatch(loadedEntryDetails(jsonDetails)),
-        (failure) => dispatch(loadEntryDetailsFailed(failure)));
+        (jsonDetails) => dispatch(loadedEntryDetails(jsonDetails))/*,
+        (failure) => dispatch(loadEntryDetailsFailed(failure))*/)
+      .catch((errObj) => dispatch(loadEntryDetailsFailed(errObj.message)));
   };
 }
 

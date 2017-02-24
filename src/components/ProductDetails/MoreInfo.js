@@ -23,13 +23,13 @@ class MoreInfo extends React.Component {
   static path = '/product/:id'
 
   render() {
-    if(this.props.failure) return <p>{this.props.failure}</p>;
+    if(this.props.entryDetails.failure) return <p>{this.props.entryDetails.failure}</p>;
 
-    const details = this.props.details;
+    const details = this.props.entryDetails.details;
 
     if(!details) return <p>No details available for the product {this.props.params.id}</p>;
 
-    return this.props.isLoading ? <Spinner /> :
+    return ( this.props.entryDetails.isLoading ? <Spinner /> :
     <div className="product-details">
       <div className="product-image">
         <img src={details.imgURL} alt="No Photo" />
@@ -58,6 +58,7 @@ class MoreInfo extends React.Component {
         <h2>Characteristics</h2>
         <div>
           <table>
+            <tbody>
             <tr>
               <th>Category</th>
               <th>Specification</th>
@@ -65,12 +66,13 @@ class MoreInfo extends React.Component {
             {
               details.characteristics.map(this.renderCharacteristicsEntry)
             }
+            </tbody>
           </table>
         </div>
       </div>
       }
 
-    </div>;
+    </div>);
   }
 
   renderCharacteristicsEntry(item, index) {
@@ -84,47 +86,8 @@ class MoreInfo extends React.Component {
 
 const mapStateToProps = function(state) {
   return {
-    details: state.entryDetails.details,
-    isLoading: state.entryDetails.isLoading,
-    failure: state.entryDetails.failure,
+    entryDetails: state.entryDetails,
   };
 }
 
 export default connect(mapStateToProps)(MoreInfo);
-
-// const mapStateToProps = function(state) {
-//   return {
-//     // TODO вопрос, можно ли получать через функцию (задержка и т.п.)
-//     details: state.currentEntry.details
-//   };
-// }
-//
-// export default connect(mapStateToProps)(MoreInfo);
-
-/*
-
-              for(var i=0; i < this.props.characteristics.length; i++) {
-                <tr>
-                  <td>{this.props.characteristics[i].propName}</td>
-                  <td>{this.props.characteristics[i].propValue}</td>
-                </tr>
-              }
-            }
-
-<tr>
-  <td>Image sensor type </td>
-  <td>36 x 24 mm CMOS</td>
-</tr>
-<tr>
-  <td>Effective Pixels </td>
-  <td>Approx. 30.4 megapixels</td>
-</tr>
-<tr>
-  <td>AF System/ Points </td>
-  <td>61 Point / max of 41 cross-type AF points inc 5 dual cross type at f/2.8 and 61 points / 21 cross-type AF points at f/81</td>
-</tr>
-<tr>
-  <td>Shutter speed</td>
-  <td>30-1/8000 sec (1/2 or 1/3 stop increments), Bulb (Total shutter speed range. Available range varies by shooting mode)</td>
-</tr>
-*/
