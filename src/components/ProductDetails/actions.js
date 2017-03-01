@@ -34,10 +34,8 @@ export function loadEntryDetailsFailed(failure) {
 
 
 export function loadEntryDetails(entryId) {
-  console.log('invoked loadEntryDetails');
   return (dispatch) => {
     dispatch(loadingEntryDetails());
-console.log('fetching',`${RESTRootURL}/entry/${entryId}`);
     fetch(`${RESTRootURL}/entry/${entryId}`).then(
       (response) => { if (response.ok) return response.json();
           else throw new Error(response.statusText);})

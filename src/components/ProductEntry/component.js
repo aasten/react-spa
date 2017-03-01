@@ -2,7 +2,6 @@ import React from 'react';
 import basecss from '../../../css/base.css';
 import css from '../../../css/style.css';
 import {addToBasket} from '../Basket/actions';
-import {loadEntryDetails} from '../ProductDetails/actions';
 import {connect} from 'react-redux';
 import {Link} from 'react-router';
 
@@ -35,7 +34,7 @@ class ProductEntry extends React.Component {
             <Link className="add-to-cart action-button" onClick={()=>this.props.dispatch(addToBasket(display.id,display.name,display.price))}>
               Add to cart
             </Link>
-            <Link className="more-info action-button" to={"/product/"+display.id} onClick={()=>this.props.dispatch(loadEntryDetails(display.id))}>
+            <Link className="more-info action-button" to={"/product/"+display.id}>
               More info
             </Link>
           </div>

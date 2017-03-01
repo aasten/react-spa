@@ -4,6 +4,7 @@ import productdetailscss from '../../../css/product-details.css';
 import facss from '../../../font-awesome/css/font-awesome.min.css';
 import Spinner from 'react-spinner';
 import {connect} from 'react-redux';
+import {loadEntryDetails} from '../ProductDetails/actions';
 
 // presentation component
 class MoreInfo extends React.Component {
@@ -20,7 +21,12 @@ class MoreInfo extends React.Component {
     }).isRequired,
   }
 
-  static path = '/product/:id'
+  static path = '/product/:id';
+
+  componentDidMount() {
+    console.log('did mount');
+    this.props.dispatch(loadEntryDetails(this.props.params.id));
+  }
 
   render() {
     if(this.props.entryDetails.failure) return <p>{this.props.entryDetails.failure}</p>;
