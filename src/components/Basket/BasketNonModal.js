@@ -18,7 +18,7 @@ export default class BasketNonModal extends React.Component {
 
     return (
     <div>
-      <h1>Basket</h1>
+    <h1>Basket</h1>
     <div className="cart-details">
       <table>
         <tbody>

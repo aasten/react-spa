@@ -7,22 +7,22 @@
   display: inline-block;
 }
 
-table td {
+.cart-details table td {
   text-align: right;
 }
 
-table tr td:last-child {
+.cart-details table tr td:last-child {
   border: none;
   background-color: white;
   font-size: 0.8em;
   vertical-align: middle;
 }
 
-table tr td:last-child:hover {
+.cart-details table tr td:last-child:hover {
   cursor: pointer;
 }
 
-table tr td:first-child {
+.cart-details table tr td:first-child {
   text-align: left;
 }
 

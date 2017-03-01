@@ -47,14 +47,3 @@ console.log('fetching',`${RESTRootURL}/entry/${entryId}`);
       .catch((errObj) => dispatch(loadEntryDetailsFailed(errObj.message)));
   };
 }
-
-// export function selectEntryAndShowModal(entryId) {
-//   return (dispatch,getState) => {
-// console.log('state before selectEntry: ',getState());
-//     dispatch(selectEntry(entryId));
-//     console.log('state before showModal: ',getState());
-//     dispatch(loadEntryDetails(entryId));
-//     dispatch(showModal());
-//     console.log('state after showModal: ',getState());
-//   };
-// }
