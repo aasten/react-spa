@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {removeFromBasket} from './actions';
+import FAcss from '../../../font-awesome/css/font-awesome.css';
 
 class PositionInTable extends React.Component {
   static propTypes = {
@@ -14,7 +15,7 @@ class PositionInTable extends React.Component {
   render() {
     const pos = this.props.pos;
     return (
-      <tr>
+      <tr key={pos.id}>
         <td>
           {pos.name}
         </td>

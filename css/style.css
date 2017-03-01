@@ -524,21 +524,21 @@ a.action-button {
   color: #4781A4;
 }
 
-              .pagination-bar table {
-                width: 100%;
-              }
+.pagination-bar table {
+  width: 100%;
+}
 
-              .page-prev {
-                text-align: left;
-              }
+.page-prev {
+  text-align: left;
+}
 
-              .page-home {
-                text-align: middle;
-              }
+.page-home {
+  text-align: middle;
+}
 
-              .page-next {
-                text-align: right;
-              }
+.page-next {
+  text-align: right;
+}
 
 
 .pagination-bar span {

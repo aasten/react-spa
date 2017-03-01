@@ -12,12 +12,3 @@ export function entryDetails(state={isShowingModal: false}, action) {
   }
   return state;
 }
-
-
-// export function closingModal(state, action) {
-//   switch(action.type) {
-//     // state.currentEntry.isShowingModal = false
-//     case CLOSE_MODAL: return Object.assign({},state,
-//       Object.assign(state.currentEntry, {isShowingModal: false}));
-//   }
-// }
