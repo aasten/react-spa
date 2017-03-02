@@ -56,7 +56,7 @@ class HeaderAndFooter extends React.Component {
           </div>
 
           <div className="banner-wrapper">
-            <img src="http://placehold.it/522x74" />
+            <img src="/img/522x74.png" />
           </div>
 
           <div className="navigation-bar-area">

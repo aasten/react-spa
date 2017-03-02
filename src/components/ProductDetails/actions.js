@@ -24,7 +24,7 @@ export function loadingEntryDetails() {
 }
 
 export function loadedEntryDetails(details) {
-console.log('loaded:',details);
+if (process.env.NODE_ENV == 'development') console.log('loaded:',details);
   return {type: LOADED_ENTRY_DETAILS, details: details};
 }
 
@@ -37,11 +37,9 @@ export function loadEntryDetails(entryId) {
   return (dispatch) => {
     dispatch(loadingEntryDetails());
     fetch(`${RESTRootURL}/entry/${entryId}`).then(
-      (response) => { if (response.ok) return response.json();
-          else throw new Error(response.statusText);})
-      .then(
-        (jsonDetails) => dispatch(loadedEntryDetails(jsonDetails))/*,
-        (failure) => dispatch(loadEntryDetailsFailed(failure))*/)
-      .catch((errObj) => dispatch(loadEntryDetailsFailed(errObj.message)));
+      (response) => {
+        if (response.ok) response.json().then(
+          (jsonDetails) => dispatch(loadedEntryDetails(jsonDetails)));
+        else response.text().then((failure) => dispatch(loadEntryDetailsFailed(failure)));});
   };
 }
