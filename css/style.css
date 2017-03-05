@@ -402,6 +402,9 @@ body {
   height: 20px;
 }
 
+.product-entries {
+  min-height: 300px;
+}
 
 .product-entry {
   display: inline-block;

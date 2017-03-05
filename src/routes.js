@@ -1,6 +1,7 @@
 import React from 'react';
 import {Route, IndexRoute} from 'react-router';
-import ProductsLayout from './components/ProductsLayout/component';
+import MainPage from './components/MainPage/component';
+import ProductsLayoutRoutes from './components/ProductsLayout/routes';
 import ProductDetailsRoutes from './components/ProductDetails/routes';
 import App from './App';
 
@@ -21,7 +22,8 @@ const testEntries = [
 
 ];
 
-class ProductsLayoutWithEntries extends React.Component {
+// TODO for test only, should be replaced to ProductsLayout connected to store
+class ProductsLayoutWithTestEntries extends React.Component {
   render() {
     return (
       <ProductsLayout entries={testEntries} />
@@ -29,10 +31,12 @@ class ProductsLayoutWithEntries extends React.Component {
   }
 }
 
+//     {ProductsLayoutRoutes}
+
 export default (
   <Route component={App} path = {App.path}>
-    <IndexRoute component={ProductsLayoutWithEntries}/>
-
+    <Route component={MainPage} path='/*' />
+    {ProductsLayoutRoutes}
     {ProductDetailsRoutes}
 
   </Route>
