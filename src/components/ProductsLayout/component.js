@@ -88,8 +88,10 @@ class ProductsLayout extends React.Component {
 
     const nextPage = page + 1;
     const prevPage = page - 1;
-    let linkNextPage = '/page/'+nextPage;
-    let linkPrevPage = (page > 1) ? '/page/'+prevPage : '#';
+    const linkNextPage = '/page/'+nextPage;
+    const linkPrevPage = (page > 1) ? '/page/'+prevPage : '#';
+    const hasPrevious = (page > 1);
+    const linkHome = '/page/1';
 
     return (
       <div className="goods-layout">
@@ -118,8 +120,15 @@ class ProductsLayout extends React.Component {
 
         <div className="pagination-bar layout-control-panel background-panel">
           <span className="page-right"><Link to={linkNextPage}>Next Page &raquo;</Link></span>
-          <span className="page-left"><Link to={linkPrevPage}>&laquo; Previous Page</Link></span>
-          <span><Link to='/'>Home</Link></span>
+          {
+            hasPrevious &&
+            <span className="page-left"><Link to={linkPrevPage}>&laquo; Previous Page</Link></span>
+          }
+          {
+            hasPrevious &&
+            <span><Link to={linkHome}>Home</Link></span>
+          }
+          &nbsp;
         </div>
 
       </div>
