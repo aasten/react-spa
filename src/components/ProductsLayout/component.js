@@ -36,13 +36,13 @@ class ProductsLayout extends React.Component {
 
   currentPage = () => {
     const {params: {page = 1} } = this.props;
-    return page;
+    return parseInt(page);
   }
 
-  refreshPage = () => {
-    const page = this.currentPage();
+  refreshPage = (nextPage) => {
+    const page = (nextPage) ? nextPage : this.currentPage();
     const from = 1 + (page - 1)*this.props.layout.countOnLayout;
-    console.log('did mount, page', page);
+    console.log('refresh page', page);
     if(page != this.props.layout.page) {
       if(!this.loadEntriesRequestActive) {
         this.props.dispatch(loadEntriesNoCategoryFromWithCount(from, this.props.layout.countOnLayout));
@@ -50,23 +50,27 @@ class ProductsLayout extends React.Component {
       }
       this.props.dispatch(setCurrentPageNumberAsync(page));
     }
-    if(!this.props.layout.isLoading) {
+  }
+
+  updateEntriesRequestStatus() {
+    if(this.loadEntriesRequestActive && !this.props.layout.isLoading) {
       this.loadEntriesRequestActive = false;
     }
+  }
+
+  componentWillUpdate() {
+    this.updateEntriesRequestStatus();
   }
 
   componentDidMount() {
     this.refreshPage();
   }
 
-  render() {
+  componentWillReceiveProps(nextProps) {
+    this.refreshPage(nextProps.params.page);
+  }
 
-    // const {params: {page = 1} } = this.props;
-    // const from = 1 + (page - 1)*this.props.layout.countOnLayout;
-    // this.props.dispatch(loadEntriesNoCategoryFromWithCount(from, this.props.layout.countOnLayout));
-    // if(!this.props.layout.isLoading) {
-      this.refreshPage();
-    // }
+  render() {
     const page = this.currentPage();
     console.log('render, page',page);
     const entries = this.props.layout.entries;
@@ -82,8 +86,10 @@ class ProductsLayout extends React.Component {
         </div>
         || null;
 
-    let linkNextPage = '/page/'+(page+1);
-    let linkPrevPage = (page > 1) ? '/page/'+(page-1) : '#';
+    const nextPage = page + 1;
+    const prevPage = page - 1;
+    let linkNextPage = '/page/'+nextPage;
+    let linkPrevPage = (page > 1) ? '/page/'+prevPage : '#';
 
     return (
       <div className="goods-layout">
