@@ -93,6 +93,11 @@ class ProductsLayout extends React.Component {
     const hasPrevious = (page > 1);
     const linkHome = '/page/1';
 
+    const prevPageArrow = (hasPrevious)
+      ? <Link to={linkPrevPage}> <img src="/img/slider-left-arrow.png" /> </Link>
+      : <img src="/img/slider-left-arrow.png" />;
+    const nextPageArrow = <Link to={linkNextPage}><img src="/img/slider-right-arrow.png" /></Link>;
+
     return (
       <div className="goods-layout">
 
@@ -101,10 +106,10 @@ class ProductsLayout extends React.Component {
           <div className="slider-line center-vertically">
           </div>
           <div className="arrow-image left-arrow center-vertically">
-            <img src="/img/slider-left-arrow.png" />
+            {prevPageArrow}
           </div>
           <div className="arrow-image right-arrow center-vertically">
-            <img src="/img/slider-right-arrow.png" />
+            {nextPageArrow}
           </div>
         </div>
 
