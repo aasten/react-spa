@@ -3,6 +3,7 @@ import {Route, IndexRoute} from 'react-router';
 import MainPage from './components/MainPage/component';
 import ProductsLayoutRoutes from './components/ProductsLayout/routes';
 import ProductDetailsRoutes from './components/ProductDetails/routes';
+import ProductsLayout from './components/ProductsLayout/component';
 import App from './App';
 
 // should appear in store
@@ -35,10 +36,10 @@ class ProductsLayoutWithTestEntries extends React.Component {
 
 export default (
   <Route component={App} path = {App.path}>
-    <Route component={MainPage} path='/'>
+    <Route component={MainPage}>
       {ProductsLayoutRoutes}
-      {ProductDetailsRoutes}
     </Route>
+    {ProductDetailsRoutes}
 
   </Route>
 )

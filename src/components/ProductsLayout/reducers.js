@@ -11,8 +11,11 @@ console.log('loaded entries');
       return Object.assign({}, state, {isLoading: false, entries: action.entries});
     } break;
     case Actions.LOAD_ENTRIES_FAILED: {
-console.log('load entries failed');      
+console.log('load entries failed');
       return Object.assign({}, state, {isLoading: false, entries: undefined, failure: action.failure});
+    } break;
+    case Actions.SET_CURRENT_PAGE_NUMBER: {
+      return Object.assign({}, state, {page: action.page});
     } break;
   }
   return state;

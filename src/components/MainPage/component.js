@@ -73,41 +73,44 @@ export default class MainPage extends React.Component {
 
         </div>
 
-        <div className="goods-layout">
-
-
-          <div className="slider">
-            <div className="slider-line center-vertically">
-            </div>
-            <div className="arrow-image left-arrow center-vertically">
-              <img src="/img/slider-left-arrow.png" />
-            </div>
-            <div className="arrow-image right-arrow center-vertically">
-              <img src="/img/slider-right-arrow.png" />
-            </div>
-          </div>
-
-
-          <div className="manage-layout layout-control-panel background-panel">
-            <button className="grid-layout background-panel basic-layout-button">Grid</button>
-            <button className="detail-layout background-panel basic-layout-button">Detail</button>
-          </div>
-
-          {this.props.children}
-
-          <div className="pagination-bar layout-control-panel background-panel">
-            <span className="page-right"><a href="#">Next Page &raquo;</a></span>
-            <span className="page-left"><a href="#">&laquo; Previous Page</a></span>
-            <span><a href="#">Home</a></span>
-          </div>
-
-        </div>
+        {this.props.children}
 
       </div>
     );
   }
 }
 
+{/* <div className="goods-layout">
+
+
+  <div className="slider">
+    <div className="slider-line center-vertically">
+    </div>
+    <div className="arrow-image left-arrow center-vertically">
+      <img src="/img/slider-left-arrow.png" />
+    </div>
+    <div className="arrow-image right-arrow center-vertically">
+      <img src="/img/slider-right-arrow.png" />
+    </div>
+  </div>
+
+
+  <div className="manage-layout layout-control-panel background-panel">
+    <button className="grid-layout background-panel basic-layout-button">Grid</button>
+    <button className="detail-layout background-panel basic-layout-button">Detail</button>
+  </div>
+
+  <div className="product-entries">
+    {this.props.children}
+  </div>
+
+  <div className="pagination-bar layout-control-panel background-panel">
+    <span className="page-right"><a href="#">Next Page &raquo;</a></span>
+    <span className="page-left"><a href="#">&laquo; Previous Page</a></span>
+    <span><a href="#">Home</a></span>
+  </div>
+
+</div> */}
 
 // const mapStateToProps = function(state) {
 //   return {
