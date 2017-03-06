@@ -35,9 +35,10 @@ class ProductsLayoutWithTestEntries extends React.Component {
 
 export default (
   <Route component={App} path = {App.path}>
-    <Route component={MainPage} path='/*' />
-    {ProductsLayoutRoutes}
-    {ProductDetailsRoutes}
+    <Route component={MainPage} path='/'>
+      {ProductsLayoutRoutes}
+      {ProductDetailsRoutes}
+    </Route>
 
   </Route>
 )

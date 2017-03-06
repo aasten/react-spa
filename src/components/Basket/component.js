@@ -23,7 +23,7 @@ class BasketModal extends React.Component {
         position: 'absolute',
         left: '50%',
         top: '50%',
-        height: 'inherit',
+        height: '74%',
         transform: 'translate(-50%,-50%)',
         border: '1px solid #ccc',
         background: '#fff',

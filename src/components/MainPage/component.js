@@ -93,9 +93,7 @@ export default class MainPage extends React.Component {
             <button className="detail-layout background-panel basic-layout-button">Detail</button>
           </div>
 
-          <div className="product-entries">
-            <ProductsLayout />
-          </div>
+          {this.props.children}
 
           <div className="pagination-bar layout-control-panel background-panel">
             <span className="page-right"><a href="#">Next Page &raquo;</a></span>

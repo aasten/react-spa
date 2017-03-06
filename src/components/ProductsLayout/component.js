@@ -50,7 +50,7 @@ console.log('page',this.props.params.page)
 
     let returnedJSX = (this.props.layout.isLoading) ? <p>Loading...</p> :
         entries &&
-        <div> {
+        <div className="product-entries"> {
           entries.map((display,i) => <ProductEntry display={display} key={i} />) }
         </div>
         || null;

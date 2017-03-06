@@ -3,7 +3,10 @@ import { IndexRoute, Route } from 'react-router';
 import ProductsLayout from './component';
 
 export default (
-    <IndexRoute>
-        <Route component={ ProductsLayout } path={ ProductsLayout.path } />
-    </IndexRoute>
+  <Route>
+    <Route component={ ProductsLayout } path={ ProductsLayout.path } />
+  </Route>
 );
+
+{/* <Route component={ ProductsLayout } path={ ProductsLayout.path } />
+</IndexRoute> */}
